@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>Gestion des Contacts</h1>
+
+  <!-- Formulaire pour ajouter un contact -->
+  <form (ngSubmit)="addContact()">
+    <input type="text" placeholder="Nom" [(ngModel)]="newContact.name" name="name" required />
+    <input type="text" placeholder="Téléphone" [(ngModel)]="newContact.phone" name="phone" required />
+    <button type="submit">Ajouter</button>
+  </form>
+
+  <!-- Liste des contacts -->
+  <ul>
+    <li *ngFor="let contact of contacts">
+      {{ contact.name }} - {{ contact.phone }}
+      <button (click)="deleteContact(contact.id)">Supprimer</button>
+    </li>
+  </ul>
+</div>
